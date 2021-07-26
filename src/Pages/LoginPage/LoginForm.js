@@ -3,7 +3,7 @@ import {  InputsContainer, LoginFormContainer } from "./styled";
 import { useHistory } from "react-router-dom";
 import { Button } from "@material-ui/core";
 import { TextField } from "@material-ui/core";
-import useForm from "../../hooks/useForm"
+import useForm from "../../Hooks/useForm"
 
 function LoginForm () {
     const [form, onChange] = useForm({ email: "", password: "" })
