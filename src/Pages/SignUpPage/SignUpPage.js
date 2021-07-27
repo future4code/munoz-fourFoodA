@@ -1,5 +1,5 @@
 import React from 'react';
-import logoinvert3x from "../../Assets/logo-invert@3x.png"
+import logoinvert3x from "../../assets/logo-invert@3x.png"
 import { LogoImage, ScreenContainer } from "./styled";
 import SignUpForm from './SignUpForm';
 

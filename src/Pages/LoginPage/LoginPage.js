@@ -1,7 +1,7 @@
 import React from 'react';
-import logoinvert3x from "../../Assets/logo-invert@3x.png"
+import logoinvert3x from "../../assets/logo-invert@3x.png"
 import LoginForm from './LoginForm';
-import {InputsContainer, ScreenContainer, SignUpButtonContainer} from "./styled"
+import {InputsContainer, ScreenContainer, SignUpButtonContainer, LogoImage} from "./styled"
 import { Button } from "@material-ui/core"
 import {goToSignUp} from "../../Routes/Coordinator"
 import { useHistory } from "react-router-dom";
@@ -10,7 +10,7 @@ function LoginPage () {
   const history = useHistory()
   return (
     <ScreenContainer>
-      <img src={logoinvert3x}/>
+      <LogoImage src={logoinvert3x}/>
       <InputsContainer>
       <LoginForm/>
       </InputsContainer>

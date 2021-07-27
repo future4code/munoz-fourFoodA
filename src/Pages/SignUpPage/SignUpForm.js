@@ -1,10 +1,12 @@
 import React from "react";
 import { TextField } from "@material-ui/core";
 import { useHistory } from "react-router-dom";
-import useForm from "../../Hooks/useForm";
+import useForm from "../../hooks/useForm";
 import { Button } from "@material-ui/core";
 import { SignUpFormContainer, InputsContainer } from "./styled"
 import { cpfRequired } from "../../Components/Cpf/Cpf";
+import axios from "axios"
+import {BASE_URL} from "../../Constants/Urls"
 
 
 const SignUpForm = () => {
@@ -13,9 +15,23 @@ const SignUpForm = () => {
 
     const onSubmitForm = (event) => {
         event.preventDefault()
+        signUp()
     }
+  
+      const signUp = () =>{
+        axios.post(`${BASE_URL}/fourFoodA/signup`, form)
+        .then((res)=> {
+            localStorage.setItem('token', res.data.token)
+            console.log(form)
+            clear()
+        })
+        .catch((err)=>console.log(err))
+      } 
+
+      
+      
     return (
-        <form onSubmit={onSubmitForm}>
+        <form onSubmit={()=>onSubmitForm()}>
             <SignUpFormContainer>
                 <InputsContainer>
                 <TextField
@@ -69,7 +85,7 @@ const SignUpForm = () => {
                 />
                 </InputsContainer>
                 <Button
-                color={"primery"}
+                color={"primary"}
                 variant={"contained"}
                 type={"submit"}
                 fullWidth
