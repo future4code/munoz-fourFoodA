@@ -1,10 +1,16 @@
 import React from 'react';
+import { ScreenContainer, InputsContainer } from './styled'
+import AdressForm from './AdressForm'
 
-function AdressPage () {
+
+function AdressPage() {
   return (
-    <div>
-      <h1>AdressPage</h1>
-    </div>
+    <ScreenContainer>
+      <h2>Meu Endereço</h2>
+      <InputsContainer>
+        <AdressForm></AdressForm>
+      </InputsContainer>
+    </ScreenContainer>
   );
 }
 
