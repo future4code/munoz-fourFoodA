@@ -1,9 +1,15 @@
 import React from 'react';
+import CardRestaurants from '../../Components/CardRestaurants/CardRestaurants';
+import useRequestData from '../../hooks/useRequestData';
 
-function FeedPage () {
+const FeedPage = () => {
+  const feed = useRequestData("restaurants", "restaurants")
+  console.log("teste", feed)
+
   return (
     <div>
-      <h1>FeedPage</h1>
+      <h1>Restaurantes</h1>
+      <CardRestaurants/>
     </div>
   );
 }
