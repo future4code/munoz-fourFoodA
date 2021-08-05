@@ -6,6 +6,7 @@ import { TextField } from "@material-ui/core";
 import useForm from "../../hooks/useForm"
 import axios from "axios"
 import {BASE_URL} from "../../Constants/Urls"
+import { goToFeed } from "../../Routes/Coordinator";
 
 function LoginForm () {
     const [form, onChange] = useForm({ email: "", password: "" })
@@ -52,6 +53,7 @@ function LoginForm () {
                 />
           </InputsContainer>
           <Button
+          onClick={() => goToFeed(history)}
              type={"submit"}
              fullWidth
              variant={"contained"}
