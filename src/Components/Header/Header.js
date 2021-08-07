@@ -14,14 +14,14 @@ const Name =() => {
            return("IFuture")
        } else if (history.location.pathname = "/restaurante"){
            return("Restaurante")
-       } else if (history.location.pathname === "/profile"){
+       } else if (history.location.pathname === "/profil"){
         return("Meu Perfil")
-    }   else if(history.location.pathname === "/editAddressPage" || "/cadastrar-endereco"){
+    }   else if(history.location.pathname === "/editar-perfil" || "/cadastrar-endereco"){
         return("Endereço")
     }  
-    else if(history.location.pathname === "/cart"){
+    else if(history.location.pathname === "/carrinho"){
         return("Meu Carrinho")
-    }  else if(history.location.pathname === "/search"){
+    }  else if(history.location.pathname === "/procurar"){
         return("Busca")
     }  
     else{
