@@ -38,6 +38,10 @@ export const goToProfileEdit = (history) => {
     history.push("/editar-perfil")
 }
 
+export const goToAddressEdit = (history) => {
+    history.push("/editar-endereco")
+}
+
 export const goToHistory = (history) => {
     history.push("/historico")
 }
