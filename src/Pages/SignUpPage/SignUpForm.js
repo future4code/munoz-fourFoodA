@@ -7,6 +7,7 @@ import { SignUpFormContainer, InputsContainer } from "./styled"
 import { cpfRequired } from "../../Components/Cpf/Cpf";
 import axios from "axios"
 import {BASE_URL} from "../../Constants/Urls"
+import { signUp } from "../../Services/User";
 
 
 const SignUpForm = () => {
@@ -15,23 +16,11 @@ const SignUpForm = () => {
 
     const onSubmitForm = (event) => {
         event.preventDefault()
-        signUp()
+        signUp(form, clear, history)
     }
   
-      const signUp = () =>{
-        axios.post(`${BASE_URL}/fourFoodA/signup`, form)
-        .then((res)=> {
-            localStorage.setItem('token', res.data.token)
-            console.log(form)
-            clear()
-        })
-        .catch((err)=>console.log(err))
-      } 
-
-      
-      
     return (
-        <form onSubmit={()=>onSubmitForm()}>
+        <form onSubmit={onSubmitForm}>
             <SignUpFormContainer>
                 <InputsContainer>
                 <TextField

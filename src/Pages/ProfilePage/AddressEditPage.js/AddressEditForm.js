@@ -25,11 +25,12 @@ function AddressEditForm(props) {
             form,
             {
                 headers: {
-                    auth: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Imlkand4bEtLNDY3YlAyY0g4emFhIiwibmFtZSI6IkpvYW5hIiwiZW1haWwiOiJqb2FuYUBnbWFpbC5jb20iLCJjcGYiOiI3MjY1MjU2MTA3MyIsImhhc0FkZHJlc3MiOmZhbHNlLCJpYXQiOjE2Mjc2MDMxMjF9.XtBIYgrQIgdURHE9u-hXesT0RgvKa2NkMrUYgXVNX0o"
+                    auth: localStorage.getItem('token')
                 }
             }
         ).then((response) => {
             console.log(response.data)
+            localStorage.setItem("token", response.data.user.token)
             window.location.reload()
         })
             .catch(error => {

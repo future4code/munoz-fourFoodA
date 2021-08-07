@@ -6,7 +6,7 @@ export const goToSignUp = (history) => {
     history.push("/signup")
 }
 
-export const goToAddres = (history) => {
+export const goToAddress = (history) => {
     history.push("/endereco")
 }
 
