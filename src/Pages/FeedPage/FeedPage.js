@@ -18,10 +18,9 @@ const FeedPage = () => {
   const filteredRestaurants = restaurants.restaurants && restaurants.restaurants
       .filter(products => products.category.includes(choice))
 
-  console.log(choice)
   const listOfCategory = restaurants.restaurants && restaurants.restaurants.map((el, i, arr) => {
       const index = categoria.findIndex((categoryName) => {
-          if (categoryName.category === el.category) {
+          if (categoryName === el.category) {
               return true
           } else {
               return false
