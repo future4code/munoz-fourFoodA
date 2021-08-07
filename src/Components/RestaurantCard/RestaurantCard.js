@@ -11,7 +11,7 @@ const RestaurantCard = (props) => {
     const history = useHistory();
 
     const handleRestaurant = (id) =>{
-      history.push(`restaurant/${id}`)
+      history.push(`/restaurant/${id}`)
     }
     
  const RestaurantsList =
