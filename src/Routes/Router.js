@@ -10,6 +10,7 @@ import ConfirmPage from "../Pages/ConfirmPage/ConfirmPage"
 import RequestPage from "../Pages/RequestPage/RequestPage"
 import ProfilePage from "../Pages/ProfilePage/ProfilePage"
 import ProfileEditPage from "../Pages/ProfilePage/ProfileEditPage/ProfileEditPage"
+import AddressEditPage from '../Pages/ProfilePage/AddressEditPage.js/AddressEditPage';
 import HistoryRequestPage from "../Pages/HistoryRequestPage/HistoryRequestPage"
 import CartPage from "../Pages/CartPage/CartPage"
 
@@ -55,6 +56,10 @@ function Router () {
 
         <Route exact path="/editar-perfil">
             <ProfileEditPage/>
+        </Route>
+
+        <Route exact path="/editar-endereco">
+            <AddressEditPage/>
         </Route>
 
         <Route exact path="/historico">
