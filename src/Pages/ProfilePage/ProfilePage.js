@@ -4,25 +4,26 @@ import useRequestData from '../../hooks/useRequestData'
 import OrdersHistory from '../../Components/Cpf/OrdersHistory';
 import { goToProfileEdit } from '../../Routes/Coordinator';
 import { goToAddressEdit } from '../../Routes/Coordinator';
+import { BASE_URL } from '../../Constants/Urls';
 
 function ProfilePage () {
     const history = useHistory()
-    const userData = useRequestData(`profile`, "user")
-    const address = useRequestData(`profile/address`, "address")
+    const userData = useRequestData(`${BASE_URL}/profile`)
+    const address = useRequestData(`${BASE_URL}/profile/address`)
 
   return (
     <div>
       <h1>ProfilePage</h1>
 
       <div>
-        <p>{userData && userData.name}</p>
-        <p>{userData && userData.email}</p>
-        <p>{userData && userData.cpf}</p>
+        <p>{userData && userData.user.name}</p>
+        <p>{userData && userData.user.email}</p>
+        <p>{userData && userData.user.cpf}</p>
         <button onClick={() => goToProfileEdit(history)}>Editar perfil</button>
       </div>
 
       <div>
-        <p>{address && address.street}, {address && address.number} - {address && address.neighbourhood}</p>
+        <p>{address && address.address.street}, {address && address.address.number} - {address && address.address.neighbourhood}</p>
         <button onClick={() => goToAddressEdit(history)}>Editar endereço</button>
       </div>
 

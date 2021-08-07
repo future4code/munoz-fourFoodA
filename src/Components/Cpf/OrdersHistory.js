@@ -1,9 +1,10 @@
 import React from "react"
 import useRequestData from "../../hooks/useRequestData";
+import { BASE_URL } from "../../Constants/Urls";
 
 function OrdersHistory () {
-  const history = useRequestData("orders/history", "orders")
-
+  const history = useRequestData(`${BASE_URL}/orders/history`, "")
+  
   return (
     <div>
       <h1>History</h1>

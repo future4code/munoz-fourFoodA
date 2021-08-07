@@ -21,7 +21,7 @@ function AdressForm() {
         e.preventDefault()
 
         axios.put(
-            `${BASE_URL}/fourFoodA/address`,
+            `${BASE_URL}/address`,
             form,
             {
                 headers: {

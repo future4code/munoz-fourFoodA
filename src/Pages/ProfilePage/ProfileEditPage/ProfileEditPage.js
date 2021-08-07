@@ -2,9 +2,10 @@ import React from 'react';
 import { ProfileEditForm } from './ProfileEditForm'
 import useRequestData from '../../../hooks/useRequestData'
 import { ScreenContainer, InputsContainer } from './styled'
+import { BASE_URL } from '../../../Constants/Urls';
 
 function ProfileEditPage () {
-  const userData = useRequestData(`profile`, "user")
+  const userData = useRequestData(`${BASE_URL}/profile`)
 
   return (
     <ScreenContainer>

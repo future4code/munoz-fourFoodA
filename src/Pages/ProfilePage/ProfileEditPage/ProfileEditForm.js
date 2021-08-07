@@ -7,19 +7,23 @@ import axios from "axios";
 import { BASE_URL } from "../../../Constants/Urls"
 
 export const ProfileEditForm = (props) => {
-    const [form, onChange, clear] = useForm({ name: props.userData.name, email: props.userData.email, cpf: props.userData.cpf })
+    const [form, onChange] = useForm({
+        name: props.userData.user.name,
+        email: props.userData.user.email,
+        cpf: props.userData.user.cpf
+    })
 
     const editProfile = (e) => {
         e.preventDefault()
         axios.put(
-            `${BASE_URL}/fourFoodA/profile`,
+            `${BASE_URL}/profile`,
             form,
             {
                 headers: {
-                  auth: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Imlkand4bEtLNDY3YlAyY0g4emFhIiwibmFtZSI6IkpvYW5hIiwiZW1haWwiOiJqb2FuYUBnbWFpbC5jb20iLCJjcGYiOiI3MjY1MjU2MTA3MyIsImhhc0FkZHJlc3MiOnRydWUsImFkZHJlc3MiOiJBY2Vzc28gVWlyYXB1cnUgZG8gU2VydMOjbywgMjM2LCA3YiAtIENlbnRybyIsImlhdCI6MTYyODA0MTUyNn0.KJDc0EHnXIqTJ3KFVe5wH6P9zV5_dApZOsiatUGvk0k"
+                    auth: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Imlkand4bEtLNDY3YlAyY0g4emFhIiwibmFtZSI6IkpvYW5hIiwiZW1haWwiOiJqb2FuYUBnbWFpbC5jb20iLCJjcGYiOiI3MjY1MjU2MTA3MyIsImhhc0FkZHJlc3MiOnRydWUsImFkZHJlc3MiOiJBY2Vzc28gVWlyYXB1cnUgZG8gU2VydMOjbywgMjM2LCA3YiAtIENlbnRybyIsImlhdCI6MTYyODA0MTUyNn0.KJDc0EHnXIqTJ3KFVe5wH6P9zV5_dApZOsiatUGvk0k"
                 }
-              }
-            )
+            }
+        )
             .then((res) => {
                 console.log(res)
                 window.location.reload()
@@ -28,7 +32,7 @@ export const ProfileEditForm = (props) => {
     }
 
     return (
-    
+
         <form onSubmit={editProfile}>
             <ProfileEditFormContainer>
                 <InputsContainer>
