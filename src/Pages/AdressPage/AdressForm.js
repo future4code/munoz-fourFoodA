@@ -5,9 +5,12 @@ import { Button } from "@material-ui/core";
 import { TextField } from "@material-ui/core";
 import { InputsContainer, AddAdressFormContainer } from './styled'
 import {BASE_URL} from "../../Constants/Urls"
+import { goToFeed } from '../../Routes/Coordinator';
+import { useHistory } from "react-router-dom"
 
 
 function AdressForm() {
+    const history = useHistory()
     const [form, onChange, clear] = useForm({
         street: "",
         number: "",
@@ -25,12 +28,14 @@ function AdressForm() {
             form,
             {
                 headers: {
-                    auth: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Imlkand4bEtLNDY3YlAyY0g4emFhIiwibmFtZSI6IkpvYW5hIiwiZW1haWwiOiJqb2FuYUBnbWFpbC5jb20iLCJjcGYiOiI3MjY1MjU2MTA3MyIsImhhc0FkZHJlc3MiOmZhbHNlLCJpYXQiOjE2Mjc2MDMxMjF9.XtBIYgrQIgdURHE9u-hXesT0RgvKa2NkMrUYgXVNX0o"
+                    auth: localStorage.getItem('token')
                 }
             }
-        ) .then((r) => {
+        ) .then((response) => {
             clear()
-            console.log(r.data)
+            goToFeed(history)
+            localStorage.setItem("token", response.data.user.token)
+            console.log(response.data)
         })
         .catch (error => {
             console.log(error)

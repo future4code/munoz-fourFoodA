@@ -7,23 +7,16 @@ import useForm from "../../hooks/useForm"
 import axios from "axios"
 import {BASE_URL} from "../../Constants/Urls"
 import { goToFeed } from "../../Routes/Coordinator";
+import { login } from "../../Services/User";
 
 function LoginForm () {
-    const [form, onChange] = useForm({ email: "", password: "" })
+    const [form, onChange, clear] = useForm({ email: "", password: "" })
     const history = useHistory()
 
     const onSubmitForm = (event) =>{
       event.preventDefault()
-      login()
+      login(form, clear, history)
     }
-
-    const login = () =>{
-      axios.post(`${BASE_URL}/fourFoodA/login`, form)
-      .then((res)=> console.log(res))
-      .catch((err)=>console.log(err))
-    } 
-    
-
 
     return (
       <LoginFormContainer>
@@ -53,7 +46,7 @@ function LoginForm () {
                 />
           </InputsContainer>
           <Button
-          onClick={() => goToFeed(history)}
+          // onClick={() => goToFeed(history)}
              type={"submit"}
              fullWidth
              variant={"contained"}
