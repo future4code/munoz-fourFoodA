@@ -4,37 +4,37 @@ import useForm from "../../../hooks/useForm";
 import { Button } from "@material-ui/core";
 import { TextField } from "@material-ui/core";
 import { InputsContainer, AddAdressFormContainer } from './styled'
-import {BASE_URL} from "../../../Constants/Urls"
+import { BASE_URL } from "../../../Constants/Urls"
 
 
 function AddressEditForm(props) {
-    const [form, onChange, clear] = useForm({
-        street: props.addressData.street,
-        number: props.addressData.number,
-        neighbourhood: props.addressData.neighbourhood,
-        city: props.addressData.city,
-        state: props.addressData.state,
-        complement: props.addressData.complement
+    const [form, onChange] = useForm({
+        street: props.addressData.address.street,
+        number: props.addressData.address.number,
+        neighbourhood: props.addressData.address.neighbourhood,
+        city: props.addressData.address.city,
+        state: props.addressData.address.state,
+        complement: props.addressData.address.complement
     })
 
     const AddAdress = (e) => {
         e.preventDefault()
 
         axios.put(
-            `${BASE_URL}/fourFoodA/address`,
+            `${BASE_URL}/address`,
             form,
             {
                 headers: {
                     auth: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Imlkand4bEtLNDY3YlAyY0g4emFhIiwibmFtZSI6IkpvYW5hIiwiZW1haWwiOiJqb2FuYUBnbWFpbC5jb20iLCJjcGYiOiI3MjY1MjU2MTA3MyIsImhhc0FkZHJlc3MiOmZhbHNlLCJpYXQiOjE2Mjc2MDMxMjF9.XtBIYgrQIgdURHE9u-hXesT0RgvKa2NkMrUYgXVNX0o"
                 }
             }
-        ) .then((response) => {
+        ).then((response) => {
             console.log(response.data)
             window.location.reload()
         })
-        .catch (error => {
-            console.log(error)
-        })
+            .catch(error => {
+                console.log(error)
+            })
     }
 
     return (
