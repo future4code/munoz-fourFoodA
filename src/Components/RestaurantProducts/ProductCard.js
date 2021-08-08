@@ -14,21 +14,23 @@ function ProductCard(props) {
                     className={"media"}
                     image={props.product.photoUrl}
                     title={props.product.name}
-                />
+                    />
+                
                 <Content >
                     <Typography gutterBottom className={"name"}
                         color="primary" >
                         {props.product.name}
                     </Typography>
                     <ContainerTimeShipping>
+                        <Typography className={"description"} variant="body2" color="textSecondary" component="p">
+                            {props.product.description}
+                        </Typography>
                         <Typography variant="body2" color="textSecondary" component="p">
                             R$ {props.product.price}
                         </Typography>
-                        <Typography variant="body2" color="textSecondary" component="p">
-                            Frete R${props.product.shipping}
-                        </Typography>
                     </ContainerTimeShipping>
                 </Content>
+                
             </CardActionArea>
         </Card>
         </RestaurantCardContainer>

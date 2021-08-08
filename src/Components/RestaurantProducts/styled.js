@@ -15,14 +15,25 @@ align-items: center;
   }
 
   .name{
-    margin:0;
+  
+    width: 10.438rem;
+    height: 1.125rem;
+    
+    font-family: Roboto;
+    font-size: 1rem;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: -0.39px;
+    color: #e8222e;
   }
 
   .media {
-  width: 100%;
+  width: 50%;
   height: 7.5rem;
   margin: 0 0 0.75rem;
-  object-fit: contain;
+  
   }
 `
 export const ContainerTimeShipping = styled.div`
