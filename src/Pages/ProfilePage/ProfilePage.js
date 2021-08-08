@@ -1,7 +1,7 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom'
 import useRequestData from '../../hooks/useRequestData'
-import OrdersHistory from '../../Components/Cpf/OrdersHistory';
+import OrdersHistory from '../../Components/OrdersHistory/OrdersHistory';
 import { goToProfileEdit } from '../../Routes/Coordinator';
 import { goToAddressEdit } from '../../Routes/Coordinator';
 import { BASE_URL } from '../../Constants/Urls';
