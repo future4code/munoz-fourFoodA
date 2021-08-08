@@ -9,6 +9,6 @@ export const RestaurantDetails = styled.div`
             width: 50%;
             
         }
-   
 
+   
 `
