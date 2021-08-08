@@ -36,7 +36,7 @@ const FeedPage = () => {
  
   return (
       <RestaurantContainer>
-          <Header />
+          <Header/>
           <SearchComponent />
           <Category categoria={categoria} setChoice={setChoice} choice={choice} />
           {restaurants.restaurants ? <RestaurantCard restaurants={test} /> : <img className={"loading"} src={Load} alt={"loading"} />}

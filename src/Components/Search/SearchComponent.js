@@ -3,13 +3,15 @@ import { useHistory } from 'react-router-dom'
 import { goToSearch } from '../../Routes/Coordinator'
 import { ContainerSearch, SearchInput } from './styled'
 import SearchIcon from '@material-ui/icons/Search'
-import { InputAdornment, Typography, Box, TextField } from '@material-ui/core';
+import { InputAdornment, Typography, Box, TextField, Container } from '@material-ui/core';
 
 export default function SearchComponent() {
     const history = useHistory();
     return (
-        <Box ml={2} mr={2}>
+        <ContainerSearch>
+            <Box ml={2} mr={2}>
             <form variant="outlined" onClick={() => goToSearch(history)} >
+                <SearchInput>
                 <TextField
                     autoFocus
                     fullWidth
@@ -26,7 +28,9 @@ export default function SearchComponent() {
                         ),
                     }}
                 />
+                </SearchInput>
             </form>
         </Box>
+        </ContainerSearch>
     )
 }
