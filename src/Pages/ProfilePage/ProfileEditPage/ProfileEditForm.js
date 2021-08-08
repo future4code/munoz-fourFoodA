@@ -32,7 +32,6 @@ export const ProfileEditForm = (props) => {
     }
 
     return (
-
         <form onSubmit={editProfile}>
             <ProfileEditFormContainer>
                 <InputsContainer>

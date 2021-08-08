@@ -19,9 +19,9 @@ const Footer = () => {
   return (
     <FooterContainer>
       <IconImage
-        src={history.location.pathname === "/perfil" ? avatarRed : avatar}
-        alt="avatar"
-        onClick={() => goToProfile(history)}
+        src={history.location.pathname === "/feed" ? homeRed : home}
+        alt="home"
+        onClick={() => goToFeed(history)}
       />
       <IconImage
         src={history.location.pathname === "/carrinho" ? cartRed : cart}
@@ -29,9 +29,9 @@ const Footer = () => {
         onClick={() => goToCart(history)}
       />
       <IconImage
-        src={history.location.pathname === "/feed" ? homeRed : home}
-        alt="home"
-        onClick={() => goToFeed(history)}
+        src={history.location.pathname === "/perfil" ? avatarRed : avatar}
+        alt="avatar"
+        onClick={() => goToProfile(history)}
       />
     </FooterContainer>
   );
