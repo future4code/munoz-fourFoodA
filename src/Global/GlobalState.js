@@ -1,54 +1,97 @@
-import axios from "axios";
-import React, { useEffect, useState } from "react";
-import GlobalStateContext from "../Global/GlobalStateContext";
-import { BASE_URL } from "../constants/urls";
+import GlobalStateContext from "./GlobalStateContext";
+import { useCartState } from "../hooks/useCartState";
+import { getRestaurants } from "../services/getRestaurants";
+import { getActiveOrder } from "../services/getActiveOrder";
+import React, { useContext, useEffect, useState } from "react";
+import { getUserData } from "../services/user";
 
-const GlobalState = (props) => {
-    const [nameRestaurant, setNameRestaurant] = useState([])
-    const [dataRestaurant, setDataRestaurant] = useState([])
-    const [restaurant, setRestaurant] = useState([])	
-   
-    useEffect(() => {
-        getNameRestaurant()
-    }, [])
+export const GlobalState = (props) => {
+  const [restaurants, setRestaurants] = useState([]);
+  const [carrinho, setCarrinho] = useState([])
+  const [data, setData] = useState([]);
+  const [user, setUser] = useState({});
 
-
-    useEffect(() => {
-        const listRestaurant = []
-        nameRestaurant.forEach((item) => {
-            axios.get(`${BASE_URL}/${item.name}`)
-                .then((response) => {
-                    listRestaurant.push(response.data.restaurants)
-			const orderList = listRestaurant.sort((a, b) => {
-                            return a.id - b.id
-                        })
-                    	
-                        setDataRestaurant(orderList)
-                    }
-                )
-                .catch((err) => console.log(err.message))
-        })
-
-    }, [nameRestaurant])
+  const [
+    cartState,
+    addItemCart,
+    removeItemCart,
+    infoRest,
+    setInfoRest,
+    clearCart,
+  ] = useCartState();
 
 
-    const getNameRestaurant= () => {
-        axios.get(`${BASE_URL}/restaurants`)
-            .then((response) => {
-                setNameRestaurant(response.data.results)
-            })
-            .catch((err) => console.log(err.message))
+    const cart = {
+      cartState,
+      addItemCart,
+      removeItemCart,
+      infoRest,
+      setInfoRest,
+      clearCart,
+    };
+
+    
+  const [orders, setOrders] = useState([]);
+  const [isUpdate, setIsUpdate] = useState(false);
+
+  useEffect(() => {
+    (async () => {
+      const res = await getRestaurants();
+
+      if (res.status) {
+        setRestaurants(res.restaurants);
+      } else {
+        console.log(res.message);
+      }
+      setIsUpdate(false);
+    })();
+  }, [isUpdate]);
+
+  useEffect(() => {
+    (async () => {
+      const res = await getActiveOrder();
+
+      res.status && setOrders(res.order);
+    })();
+  }, []);
+
+  const token = localStorage.getItem("token");
+
+  useEffect(() => {
+    if (token) {
+      getUserData(setUser);
     }
+  }, []);
+  const states = {
+    carrinho,
+    data,
+    user,
+    restaurants,
+  };
+  const setters = {
+    setCarrinho,
+    setData,
+    setUser,
+    setRestaurants,
+  };
 
+  return (
+    <GlobalStateContext.Provider value={{ states, setters, cart }}>
+      {props.children}
+    </GlobalStateContext.Provider>
+  );
+};
 
-    const data = { dataRestaurant, setDataRestaurant, restaurant, setRestaurant}
+export const useGlobal = () => {
+  return useContext(GlobalStateContext);
+};
 
+export const useGlobalStates = () => {
+  const { states } = useGlobal();
+  return states;
+};
 
-    return (
-        <GlobalStateContext.Provider value={data}>
-            {props.children}
-        </GlobalStateContext.Provider>
-    )
-
-}
-export default GlobalState
+export const useGlobalSetters = () => {
+  const { setters } = useGlobal();
+  return setters;
+};
