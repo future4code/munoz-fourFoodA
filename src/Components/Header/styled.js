@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const HeaderContainer = styled.div`
   width: 10.938rem;
-  height: 2.75rem;
+  height: 3rem;
   margin: 1.25rem 5.75rem 0 3.373rem;
   padding: 0.813rem 4.125rem 0.75rem;
   display: grid;

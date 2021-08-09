@@ -5,6 +5,7 @@ import { BASE_URL } from '../../Constants/Urls';
 import ProductList from '../../Components/RestaurantProducts/ProductList';
 import { RestaurantDetails, Text } from './styled';
 import { useGlobal } from '../../Global/GlobalStateContext';
+import Header from '../../Components/Header/Header';
 
 function RestaurantPage () {
   const restaurantId = useParams()
@@ -17,7 +18,7 @@ function RestaurantPage () {
 
   return (
     <div>
-      <h1>RestaurantPage</h1>
+      <Header/>
       
       {restaurantDetails ? 
       <RestaurantDetails>

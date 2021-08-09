@@ -12,19 +12,19 @@ const Header = () =>{
 const Name =() => {
    if (history.location.pathname === "/feed"){
            return("IFuture")
-       } else if (history.location.pathname === "/restaurante"){
-           return("Restaurante")
        } else if (history.location.pathname === "/perfil"){
-           
         return("Perfil")
-    }   else if(history.location.pathname === "/editar-perfil" || "/cadastrar-endereco"){
-        return("Editar")
-    }  
-    else if(history.location.pathname === "/carrinho"){
+    }   else if(history.location.pathname === "/editar-perfil"){
+        return("Editar Perfil")
+    }   else if (history.location.pathname === "/editar-endereco"){
+        return("Editar Endereço")
+    } else if(history.location.pathname === "/carrinho"){
         return("Meu Carrinho")
     }  else if(history.location.pathname === "/procurar"){
         return("Busca")
-    }  
+    }  else if (history.location.pathname = "/restaurant/:id"){
+        return("Restaurante")
+    }
     else{
        return("")
    }

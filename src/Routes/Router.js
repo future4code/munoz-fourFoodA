@@ -34,7 +34,7 @@ function Router () {
             <FeedPage/>
         </Route>
 
-        <Route exact path="/restaurant/:id">
+        <Route exact path={"/restaurant/:id"}>
             <RestaurantPage/>
         </Route>
 
