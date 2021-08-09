@@ -3,9 +3,10 @@ import { useParams } from 'react-router-dom';
 import useRequestData from '../../hooks/useRequestData';
 import { BASE_URL } from '../../Constants/Urls';
 import ProductList from '../../Components/RestaurantProducts/ProductList';
-import { RestaurantDetails, Text } from './styled';
+// import { RestaurantCardContainer, Text } from './styled';
 import { useGlobal } from '../../Global/GlobalStateContext';
 import Header from '../../Components/Header/Header';
+import Footer from '../../Components/Footer/Footer'
 
 function RestaurantPage () {
   const restaurantId = useParams()
@@ -21,7 +22,7 @@ function RestaurantPage () {
       <Header/>
       
       {restaurantDetails ? 
-      <RestaurantDetails>
+      <div>
         <img className={"img"} src={restaurantDetails.restaurant.logoUrl}/> 
         <h1>{restaurantDetails.restaurant.name}</h1>
         <h3>{restaurantDetails.restaurant.category}</h3>
@@ -29,10 +30,10 @@ function RestaurantPage () {
         <p>{restaurantDetails.restaurant.address}</p>
 
         <ProductList products={restaurantDetails.restaurant.products}/>
-      </RestaurantDetails>
+      </div>
       : <h1>Carregando</h1>}
-
-    </div>
+      <Footer/>
+      </div>
   );
 }
 
