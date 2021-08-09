@@ -15,7 +15,6 @@ function ProductList(props) {
         const categoriesFiltered = categories.filter((category, index) => {
             return categories.indexOf(category) === index
         })
-        console.log(categoriesFiltered)
   
         const mapPerCategory = (category) => {
             const perCategory = props.products.map(product => {

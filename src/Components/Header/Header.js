@@ -12,12 +12,13 @@ const Header = () =>{
 const Name =() => {
    if (history.location.pathname === "/feed"){
            return("IFuture")
-       } else if (history.location.pathname = "/restaurante"){
+       } else if (history.location.pathname === "/restaurante"){
            return("Restaurante")
-       } else if (history.location.pathname === "/profil"){
-        return("Meu Perfil")
+       } else if (history.location.pathname === "/perfil"){
+           
+        return("Perfil")
     }   else if(history.location.pathname === "/editar-perfil" || "/cadastrar-endereco"){
-        return("Endereço")
+        return("Editar")
     }  
     else if(history.location.pathname === "/carrinho"){
         return("Meu Carrinho")

@@ -9,9 +9,13 @@ align-items: center;
 
   .CardRestaurants {
     align-items: center;
+    border-radius: 8px;
+    border: solid 1px var(--greyish);
     justify-content:center;
+    margin: 0%.438rem 0 0;
     max-width: 21.5rem;
     max-height:11.75rem;
+    width: 20.5rem;
   }
 
   .name{
