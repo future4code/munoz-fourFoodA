@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 
+
 export const RestaurantCardContainer = styled.div`
 display: grid;
 gap:20px;
@@ -54,4 +55,6 @@ export const Content = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+
+
 `
